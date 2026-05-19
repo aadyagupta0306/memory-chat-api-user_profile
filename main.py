@@ -9,91 +9,136 @@ load_dotenv()
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 MODEL_NAME = "openai/gpt-oss-120b:free"
-app = FastAPI(title="Aadya's Personalized Chat API")
+app = FastAPI(title="Riya's Personalized Chat API")
 
-# --- Aadya's Profile ---
+# --- Riya's Profile ---
 USER_PROFILE = {
-  "identity": {"name": "Aadya"},
-  "core_personality": {
-    "summary": "Aadya is an observant, emotionally intelligent and creative person who is initially quiet and reserved around new people, but becomes highly expressive, funny, energetic and comfortable once trust is built. She balances analytical thinking with creativity and naturally moves between technical, strategic and creative environments.",
-    "personality_traits": ["Observant", "Creative", "Strategic", "Emotionally perceptive", "Thoughtful", "Funny", "Selective introvert", "Leadership-oriented", "Understanding", "Curious", "Independent", "Adaptable", "Ambitious", "Casually expressive", "Deep thinker"],
-    "social_behavior": {
-      "initial_behavior": "Quiet, observant, shy and reserved around unfamiliar people",
-      "comfortable_behavior": "Funny, expressive, energetic and conversational once emotionally comfortable",
-      "friendship_style": "Keeps a smaller circle and values emotionally genuine people over surface-level socializing",
-      "online_vs_real_life": {"online": "More expressive and conversational", "real_life": "More reserved initially"}
-    },
-    "behavior_patterns": {
-      "observes_people_before_opening_up": True,
-      "uses_humor_to_keep_things_light": True,
-      "deeply_values_understanding_and_authenticity": True,
-      "dislikes_fake_energy_and_one_sided_effort": True,
-      "tries_to_understand_multiple_perspectives": True
-    }
+  "user_id": "user_98765",
+  "profile_version": "v1.0",
+
+
+
+  "identity": {
+   "name": "Riya Sharma",
+   "age_range": "18-24",
+   "location": {
+     "country": "India",
+     "city": "Delhi",
+     "timezone": "Asia/Kolkata"
+   },
+   "language_preferences": ["en-IN", "hi-IN"]
   },
-  "values_and_emotions": {
-    "core_values": ["Authenticity", "Loyalty", "Understanding", "Mutual effort", "Growth", "Family", "Meaningful connections", "Creative freedom"],
-    "important_emotional_traits": {
-      "protective_about_family": True,
-      "emotionally_deep_but_not_overly_expressive": True,
-      "values_emotional_safety": True,
-      "prefers_genuine_people": True,
-      "dislikes_dishonesty": True,
-      "strongly_dislikes_sexist_behavior": True
-    },
-    "when_upset": ["Prefers isolating and processing emotions alone", "Listens to music", "Sleeps things off", "Avoids emotionally burdening others"],
-    "misunderstood_as": ["Rude", "Cold", "Judgmental"],
-    "actual_nature": "Very understanding, emotionally aware and tries to genuinely understand people and situations before judging them"
+
+
+
+  "professional_context": {
+   "role": "Undergraduate Student",
+   "field_of_study": "Computer Science",
+   "experience_level": "beginner",
+   "skills": [
+     "C++",
+     "Data Structures (basic)",
+     "HTML/CSS"
+   ],
+   "current_focus": [
+     "learning algorithms",
+     "preparing for coding interviews"
+   ]
   },
-  "interests_and_lifestyle": {
-    "creative_interests": ["Dance", "Creative storytelling", "Marketing", "Creative strategy", "Innovation", "Business ideas"],
-    "sports_and_activities": ["Skating", "Volleyball", "Dance", "Adventure activities", "Walking"],
-    "music_preferences": {
-      "current_phase": ["Hindi music", "Older Bollywood songs", "Indie music"],
-      "general_taste": ["Dance music", "Emotional/slower songs"]
-    },
-    "preferred_experiences": ["Parties", "Dance environments", "Amusement parks", "Adventure activities", "High-energy experiences", "Occasional quiet stay-ins"],
-    "food_preferences": {"likes": ["Spicy/chatpata food"], "dislikes": ["Overly sweet food"]}
+
+
+
+  "interaction_preferences": {
+   "response_style": {
+     "tone": "friendly",
+     "verbosity": "high",
+     "format": "explanatory",
+     "use_examples": true,
+     "avoid_jargon": true
+   },
+   "learning_style": {
+     "type": "conceptual",
+     "prefers_step_by_step": true,
+     "likes_visual_explanations": true
+   }
   },
-  "habits_and_work_patterns": {
-    "productivity_style": {
-      "starting_tasks": "Takes time mentally to begin tasks",
-      "once_started": "Can intensely focus for long periods and finish large amounts of work in one sitting",
-      "general_pattern": "Procrastinates initially but performs strongly under focus mode"
-    },
-    "sleep_pattern": {"general": "Inconsistent and environment-dependent"}
+
+
+
+  "behavioral_signals": {
+   "frequent_topics": [
+     "data structures",
+     "coding interview prep",
+     "college assignments"
+   ],
+   "engagement_patterns": {
+     "avg_session_length_minutes": 35,
+     "active_hours": ["19:00-23:30"]
+   }
   },
-  "relationships_and_connections": {
-    "family": {"very_close_to_parents": True, "family_importance": "Family is one of the strongest emotional priorities"},
-    "social_patterns": {"keeps_circle_small": True, "prefers_quality_over_quantity_in_friendships": True}
+
+
+
+  "goals": {
+   "short_term": [
+     "Understand recursion",
+     "Solve 100 DSA problems"
+   ],
+   "long_term": [
+     "Get internship at tech company",
+     "Become software engineer"
+   ]
   },
-  "career_and_work": {
-    "professional_identity": {
-      "summary": "Aadya combines creativity, strategy, technical understanding and leadership. She naturally gravitates toward planning, organizing, ideation, innovation and leading collaborative work.",
-      "strongest_skills": ["Creative strategy", "Leadership", "Team coordination", "Planning and structuring work", "Strategic thinking", "Marketing", "Problem solving", "Adaptability", "Creative communication", "Audience understanding", "Innovation-oriented thinking", "Analytical thinking"],
-      "technical_skills": ["Python", "SQL", "FastAPI", "Pandas", "Data analysis", "Machine learning basics", "Prompt engineering", "Backend development concepts", "AI tools and integrations", "Automation systems"],
-      "leadership_style": {
-        "naturally_takes_initiative": True,
-        "good_at_dividing_and_structuring_work": True,
-        "likes_planning_group_tasks": True,
-        "balances_creativity_with_execution": True
-      }
-    },
-    "agency_work": {
-      "agency_name": "Being",
-      "agency_type": "Creative and strategy-driven digital agency",
-      "role_in_agency": "Tech and strategy-oriented role with strong involvement in planning, systems, innovation and creative direction",
-      "services": ["Social media management", "Branding", "Website development", "Design", "AI automation"]
-    },
-    "internships_and_experience": [
-      {"company": "Sigmoid", "domain": "Data and analytics-focused work"},
-      {"company": "Fractal Analytics", "domain": "Data science and analytics-related work"},
-      {"company": "Zeta Global", "domain": "Backend, technical and data-oriented work"}
-    ],
-    "interests_in_work": ["Business strategy", "Innovation", "AI-driven systems", "Automation", "Data science", "Machine learning", "Backend systems", "Finance", "Marketing psychology", "Workflow optimization", "Creative problem-solving"]
+
+
+
+  "constraints": {
+   "time_availability": "moderate",
+   "preferred_complexity": "low",
+   "budget_sensitivity": "high"
   },
+
+
+
+  "memory": {
+   "saved_preferences": [
+     "prefers simple explanations",
+     "struggles with dynamic programming"
+   ],
+   "recent_context": [
+     "learning recursion",
+     "solving binary tree problems"
+   ]
+  },
+
+
+
+  "personal_interests": {
+   "hobbies": ["reading novels", "watching tech YouTube", "gaming"],
+   "favorite_topics": ["AI basics", "career guidance"]
+  },
+
+
+
+  "safety_and_boundaries": {
+   "content_restrictions": [
+     "avoid explicit content",
+     "avoid complex mathematical proofs"
+   ],
+   "data_privacy_level": "medium",
+   "allow_personalization": true
+  },
+
+
+
+  "system_metadata": {
+   "created_at": "2026-05-01T08:30:00Z",
+   "last_updated": "2026-05-04T14:10:00Z",
+   "source": "synthetic"
+  }
+},
   "conversation_preferences": {
-    "assistant_role": "The assistant should feel like a highly perceptive and emotionally intelligent friend who also understands Aadya professionally, creatively and technically.",
+    "assistant_role": "The assistant should feel like a highly perceptive and emotionally intelligent friend who also understands Riya professionally, creatively and technically.",
     "response_style": {
       "casual_and_natural": True,
       "emotionally_aware": True,
@@ -130,11 +175,11 @@ USER_PROFILE = {
 
 # --- Build system prompt ---
 def build_system_prompt() -> str:
-    return f"""You are Aadya's personal AI — think of yourself as a highly perceptive friend who knows her really well, both personally and professionally.
+    return f"""You are Riya's personal AI — think of yourself as a highly perceptive friend who knows her really well, both personally and professionally.
 
 You have her full profile. Use it to shape every response naturally.
 
-AADYA'S FULL PROFILE:
+Riya'S FULL PROFILE:
 {json.dumps(USER_PROFILE, indent=2)}
 
 Core rules:
@@ -181,7 +226,7 @@ def get_openrouter_client() -> OpenAI:
 # --- Home ---
 @app.get("/")
 def home() -> dict[str, str]:
-    return {"message": "Aadya's Chat API is running!"}
+    return {"message": "Riya's Chat API is running!"}
 
 # --- 1. List all threads ---
 @app.get("/threads")
