@@ -23,7 +23,7 @@ with st.sidebar:
         st.rerun()
 
 # --- Main ---
-st.title("💬 hey aadya.")
+st.title("💬 hey Riya.")
 st.caption("your ai already knows you. just talk.")
 
 st.subheader("thread management")
@@ -65,7 +65,7 @@ if "active_thread" in st.session_state:
     if st.session_state.messages:
         for msg in st.session_state.messages:
             if msg["role"] == "user":
-                st.markdown(f"**🧑 aadya:** {msg['content']}")
+                st.markdown(f"**🧑 Riya:** {msg['content']}")
             else:
                 st.markdown(f"**🤖 ai:** {msg['content']}")
     else:
